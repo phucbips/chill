@@ -665,7 +665,7 @@ namespace DeleteCloud
                     return;
                 }
 
-                string proxy = ""; // Add proxy here if needed (e.g. "1.2.3.4:8080")
+                string proxy = "206.209.7.111:8080";
                 string device = emulatorIP;
                 string packageName = "com.dts.freefireth";
                 
