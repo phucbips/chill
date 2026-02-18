@@ -1,0 +1,9 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣/𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣.csproj" Id="ee661782-3952-43a9-b60f-9883aedaf8ab">
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
+</Solution>

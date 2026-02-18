@@ -1,0 +1,14 @@
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\bin\Debug\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣.exe.config
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\bin\Debug\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣.exe
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\bin\Debug\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣.pdb
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\bin\Debug\Guna.UI2.dll
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\bin\Debug\Newtonsoft.Json.dll
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\bin\Debug\Newtonsoft.Json.xml
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\obj\Debug\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣.csproj.AssemblyReference.cache
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\obj\Debug\_______________________.Form1.resources
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\obj\Debug\_______________________.Properties.Resources.resources
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\obj\Debug\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣.csproj.GenerateResource.cache
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\obj\Debug\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣.csproj.CoreCompileInputs.cache
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\obj\Debug\________.8C1F0787.Up2Date
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\obj\Debug\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣.exe
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\obj\Debug\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣.pdb

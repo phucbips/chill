@@ -1,0 +1,14 @@
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\bin\x64\Release\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣.exe.config
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\bin\x64\Release\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣.exe
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\bin\x64\Release\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣.pdb
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\bin\x64\Release\Guna.UI2.dll
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\bin\x64\Release\Newtonsoft.Json.dll
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\bin\x64\Release\Newtonsoft.Json.xml
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\obj\x64\Release\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣.csproj.AssemblyReference.cache
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\obj\x64\Release\_______________________.Form1.resources
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\obj\x64\Release\_______________________.Properties.Resources.resources
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\obj\x64\Release\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣.csproj.GenerateResource.cache
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\obj\x64\Release\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣.csproj.CoreCompileInputs.cache
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\obj\x64\Release\________.8C1F0787.Up2Date
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\obj\x64\Release\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣.exe
+E:\FAMILY PICS\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣\obj\x64\Release\𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣.pdb
