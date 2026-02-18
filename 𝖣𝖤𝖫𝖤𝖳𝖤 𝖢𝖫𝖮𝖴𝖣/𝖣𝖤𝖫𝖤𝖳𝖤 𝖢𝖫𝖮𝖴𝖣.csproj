@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{EE661782-3952-43A9-B60F-9883AEDAF8AB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>_______________________</RootNamespace>
+    <RootNamespace>DeleteCloud</RootNamespace>
     <AssemblyName>𝖣𝖤𝖫𝖤𝖳𝖤 𝖢𝖫𝖮𝖴𝖣</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

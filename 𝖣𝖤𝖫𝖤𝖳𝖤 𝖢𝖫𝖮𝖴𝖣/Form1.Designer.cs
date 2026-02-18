@@ -1,4 +1,4 @@
-﻿namespace _______________________
+namespace DeleteCloud
 {
     partial class Form1
     {

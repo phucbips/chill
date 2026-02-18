@@ -13,17 +13,23 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Win32;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace _______________________
+namespace DeleteCloud
 {
     public partial class Form1 : Form
     {
 
-        private const string EmbeddedResourceName = "_______________________.c8750f0d.0";
+        private const string EmbeddedResourceName = "DeleteCloud.c8750f0d.0";
         private const string CertHash = "c8750f0d";
 
         private string adbPath;
+        private string _bluestacksPath;
+        private string _msiPath;
+        private string _bluestacksDataPath;
+        private string _msiDataPath;
+
         public Form1()
         {
             InitializeComponent();
@@ -127,8 +133,14 @@ namespace _______________________
                 }
 
                 string engineRoot = AdbCombo.SelectedItem?.ToString().Contains("Msi") == true
-                    ? @"C:\ProgramData\Bluestacks_msi5\Engine"
-                    : @"C:\ProgramData\BlueStacks_nxt\Engine";
+                    ? (_msiDataPath != null ? Path.Combine(_msiDataPath, "Engine") : null)
+                    : (_bluestacksDataPath != null ? Path.Combine(_bluestacksDataPath, "Engine") : null);
+
+                if (string.IsNullOrEmpty(engineRoot))
+                {
+                     UpdateStatus("Engine path not found!");
+                     return;
+                }
 
                 EditConfigs(engineRoot);
 
@@ -166,10 +178,10 @@ namespace _______________________
                 try
                 {
                     string playerPath = AdbCombo.SelectedItem?.ToString().Contains("Msi") == true
-                        ? @"C:\Program Files\BlueStacks_msi5\HD-Player.exe"
-                        : @"C:\Program Files\BlueStacks_nxt\HD-Player.exe";
+                        ? (_msiPath != null ? Path.Combine(_msiPath, "HD-Player.exe") : null)
+                        : (_bluestacksPath != null ? Path.Combine(_bluestacksPath, "HD-Player.exe") : null);
 
-                    if (File.Exists(playerPath))
+                    if (!string.IsNullOrEmpty(playerPath) && File.Exists(playerPath))
                     {
                         Process.Start(playerPath);
                         UpdateStatus("Emulator Started!");
@@ -201,6 +213,17 @@ namespace _______________________
 
         }
 
+        private string GetSuPath(string adb)
+        {
+            string[] paths = { "/system/xbin/bstk/su", "/system/xbin/su", "/system/bin/su" };
+            foreach (var path in paths)
+            {
+                 RunAdb(adb, $"shell \"ls {path}\"", out var outStr, out _);
+                 if (!string.IsNullOrEmpty(outStr) && !outStr.Contains("No such file")) return path;
+            }
+            return "su";
+        }
+
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             try
@@ -211,13 +234,13 @@ namespace _______________________
                 string tmp = ExtractEmbeddedCert(EmbeddedResourceName, CertHash);
                 RunAdb(adb, $"push \"{tmp}\" /sdcard/{CertHash}.0", out _, out _);
 
-                string suPath = "/boot/android/android/system/xbin/bstk/su";
+                string suPath = GetSuPath(adb);
                 string cmd =
-                    $"{suPath} -c 'mount -o rw,remount /dev/sda1 /system && " +
+                    $"{suPath} -c 'mount -o rw,remount /system && " +
                     $"cp /sdcard/{CertHash}.0 /system/etc/security/cacerts/{CertHash}.0 && " +
                     $"chmod 644 /system/etc/security/cacerts/{CertHash}.0 && " +
                     $"chcon u:object_r:system_file:s0 /system/etc/security/cacerts/{CertHash}.0 && " +
-                    $"mount -o ro,remount /dev/sda1 /system && " +
+                    $"mount -o ro,remount /system && " +
                     $"rm /sdcard/{CertHash}.0 && " +
                     $"setprop ctl.restart zygote'";
 
@@ -248,11 +271,11 @@ namespace _______________________
                 string adb = ResolveAdbPath();
                 if (!ConnectAdb(adb)) return;
 
-                string suPath = "/boot/android/android/system/xbin/bstk/su";
+                string suPath = GetSuPath(adb);
                 string cmd =
-                    $"{suPath} -c 'mount -o rw,remount /dev/sda1 /system && " +
+                    $"{suPath} -c 'mount -o rw,remount /system && " +
                     $"rm /system/etc/security/cacerts/{CertHash}.0 && " +
-                    $"mount -o ro,remount /dev/sda1 /system &'";
+                    $"mount -o ro,remount /system'";
 
                 RunAdb(adb, $"shell \"{cmd}\"", out _, out _);
 
@@ -291,44 +314,77 @@ namespace _______________________
 
 
 
+        private string GetRegistryValue(string keyName, string valueName)
+        {
+            try
+            {
+                using (RegistryKey key = Registry.LocalMachine.OpenSubKey($@"SOFTWARE\{keyName}"))
+                {
+                    if (key != null)
+                    {
+                        return key.GetValue(valueName) as string;
+                    }
+                }
+            }
+            catch { }
+            return null;
+        }
+
         private void PopulateAdbCombo()
         {
             AdbCombo.Items.Clear();
-            if (File.Exists(@"C:\Program Files\BlueStacks_nxt\HD-Adb.exe"))
+
+            _bluestacksPath = GetRegistryValue("BlueStacks_nxt", "InstallDir");
+            _bluestacksDataPath = GetRegistryValue("BlueStacks_nxt", "UserDefinedDir");
+
+            _msiPath = GetRegistryValue("BlueStacks_msi5", "InstallDir");
+            _msiDataPath = GetRegistryValue("BlueStacks_msi5", "UserDefinedDir");
+
+            if (!string.IsNullOrEmpty(_bluestacksPath) && File.Exists(Path.Combine(_bluestacksPath, "HD-Adb.exe")))
                 AdbCombo.Items.Add("Bluestacks");
-            if (File.Exists(@"C:\Program Files\Bluestacks_msi5\HD-Adb.exe"))
+
+            if (!string.IsNullOrEmpty(_msiPath) && File.Exists(Path.Combine(_msiPath, "HD-Adb.exe")))
                 AdbCombo.Items.Add("Msi");
+
             if (AdbCombo.Items.Count > 0)
                 AdbCombo.SelectedIndex = 0;
         }
 
         private string GetAdbPath()
         {
-            string[] adbPaths = {
-                @"C:\Program Files\BlueStacks_msi5\HD-Adb.exe",
-                @"C:\Program Files\BlueStacks_nxt\HD-Adb.exe",
-                @"C:\Android\platform-tools\adb.exe",
-            };
-
-            foreach (var path in adbPaths)
+            if (!string.IsNullOrEmpty(_msiPath))
             {
-                if (File.Exists(path))
-                    return path;
+                string msiAdb = Path.Combine(_msiPath, "HD-Adb.exe");
+                if (File.Exists(msiAdb)) return msiAdb;
             }
-            throw new FileNotFoundException("No valid ADB executable found in predefined paths.");
+
+            if (!string.IsNullOrEmpty(_bluestacksPath))
+            {
+                string bsAdb = Path.Combine(_bluestacksPath, "HD-Adb.exe");
+                if (File.Exists(bsAdb)) return bsAdb;
+            }
+
+            string platformTools = @"C:\Android\platform-tools\adb.exe";
+            if (File.Exists(platformTools)) return platformTools;
+
+            throw new FileNotFoundException("No valid ADB executable found.");
         }
 
         private string ResolveAdbPath()
         {
-            string msi = @"C:\Program Files\Bluestacks_msi5\HD-Adb.exe";
-            string nxt = @"C:\Program Files\BlueStacks_nxt\HD-Adb.exe";
+            if (AdbCombo.SelectedItem?.ToString().Contains("Msi") == true && !string.IsNullOrEmpty(_msiPath))
+            {
+                string path = Path.Combine(_msiPath, "HD-Adb.exe");
+                if (File.Exists(path)) return path;
+            }
 
-            if (AdbCombo.SelectedItem?.ToString().Contains("Msi") == true && File.Exists(msi))
-                return msi;
-            if (AdbCombo.SelectedItem?.ToString().Contains("Bluestacks") == true && File.Exists(nxt))
-                return nxt;
+            if (AdbCombo.SelectedItem?.ToString().Contains("Bluestacks") == true && !string.IsNullOrEmpty(_bluestacksPath))
+            {
+                string path = Path.Combine(_bluestacksPath, "HD-Adb.exe");
+                if (File.Exists(path)) return path;
+            }
 
-            throw new FileNotFoundException("No HD-Adb.exe found.");
+            throw new FileNotFoundException("No HD-Adb.exe found for the selected emulator.");
         }
 
         private string ExtractEmbeddedCert(string resourceName, string hash)
@@ -413,6 +469,7 @@ namespace _______________________
 
         private string GetEmulatorIP()
         {
+            if (string.IsNullOrEmpty(adbPath)) return null;
             try
             {
                 ProcessStartInfo psi = new ProcessStartInfo
@@ -450,6 +507,7 @@ namespace _______________________
         {
             return Task.Run(() =>
             {
+                if (string.IsNullOrEmpty(adbPath)) return "Error: ADB not found";
                 try
                 {
                     ProcessStartInfo psi = new ProcessStartInfo
@@ -481,6 +539,7 @@ namespace _______________________
 
         private string RunAdbCommand(string arguments)
         {
+            if (string.IsNullOrEmpty(adbPath)) return "Error: ADB not found";
             try
             {
                 ProcessStartInfo psi = new ProcessStartInfo
@@ -530,8 +589,8 @@ namespace _______________________
         {
             try
             {
-                bool bluestacksExists = File.Exists(@"C:\Program Files\BlueStacks_nxt\HD-Player.exe") ||
-                                       File.Exists(@"C:\Program Files\Bluestacks_msi5\HD-Player.exe");
+                bool bluestacksExists = (!string.IsNullOrEmpty(_bluestacksPath) && File.Exists(Path.Combine(_bluestacksPath, "HD-Player.exe"))) ||
+                                       (!string.IsNullOrEmpty(_msiPath) && File.Exists(Path.Combine(_msiPath, "HD-Player.exe")));
 
                 if (bluestacksExists)
                 {
@@ -600,19 +659,24 @@ namespace _______________________
             try
             {
                 string emulatorIP = GetEmulatorIP();
-                string proxy = ""; //prx addrs
+                if (string.IsNullOrEmpty(emulatorIP))
+                {
+                    UpdateStatus("Device not found!");
+                    return;
+                }
+
+                string proxy = "206.209.7.111:8080";
                 string device = emulatorIP;
-
                 string packageName = "com.dts.freefireth";
-
                 
-                string stopOutput = await RunAdbCommandAsync($"-s {device} shell am force-stop {packageName}");
-
+                await RunAdbCommandAsync($"-s {device} shell am force-stop {packageName}");
             
-                string proxyOutput = await RunAdbCommandAsync($"-s {device} shell settings put global http_proxy {proxy}");
+                if (!string.IsNullOrEmpty(proxy))
+                {
+                    await RunAdbCommandAsync($"-s {device} shell settings put global http_proxy {proxy}");
+                }
 
-                string launchOutput = await RunAdbCommandAsync($"-s {device} shell monkey -p {packageName} -c android.intent.category.LAUNCHER 1");
-
+                await RunAdbCommandAsync($"-s {device} shell monkey -p {packageName} -c android.intent.category.LAUNCHER 1");
   
                 UpdateStatus("Connected!");
                 Sta.ForeColor = Color.FromArgb(0, 255, 150);

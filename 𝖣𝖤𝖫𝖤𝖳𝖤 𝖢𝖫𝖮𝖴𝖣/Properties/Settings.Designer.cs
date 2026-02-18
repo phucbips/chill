@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace _______________________.Properties
+namespace DeleteCloud.Properties
 {
 
 
